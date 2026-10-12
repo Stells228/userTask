@@ -1,0 +1,197 @@
+:root {
+  --bg-gradient-start: #0b0f16;
+  --bg-gradient-end: #1a1f2c;
+  --glass-bg: rgba(30, 40, 60, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  --glass-blur: blur(12px);
+  --primary: #7c6ef0;
+  --primary-glow: rgba(124, 110, 240, 0.5);
+  --danger: #ff5e7c;
+  --success: #3bcb9a;
+  --warning: #f9c74f;
+  --text-primary: #7280af;
+  --text-secondary: #b0b8c5;
+  --text-muted: #7a8395;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+body {
+  font-family: var(--sans);
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(
+    circle at 30% 10%,
+    var(--bg-gradient-start),
+    var(--bg-gradient-end)
+  );
+  min-height: 100vh;
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Общие контейнеры */
+.container,
+.container-md,
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Карточки и блоки в стеклянном стиле */
+.glass-box,
+main,
+header,
+.book-card,
+.col-md-5,
+.empty-state,
+.detail-box {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 30px 10px 30px 10px;
+  padding: 15px;
+}
+
+/* Заголовки с градиентным свечением */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--text-primary) !important;
+}
+
+h1 {
+  font-size: 2.8rem;
+  display: inline-block;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #fff, var(--primary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px var(--primary-glow));
+}
+
+h2 {
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, #fff, var(--warning));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Поля ввода и формы (Строгий контраст: темный фон/светлый текст -> светлый фон/темный текст при фокусе) */
+input,
+textarea,
+select,
+.form-control {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-bottom: 12px;
+  background: #121824 !important;
+  border: 1px solid var(--glass-border) !important;
+  color: #f0f0f0 !important;
+  border-radius: 20px 6px 20px 6px;
+  box-sizing: border-box;
+  font-family: var(--sans);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus {
+  background: #ffffff !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 2px var(--primary-glow) !important;
+  color: #121824 !important;
+}
+
+input::placeholder,
+textarea::placeholder,
+.form-control::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 1;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder,
+.form-control:focus::placeholder {
+  color: #6c757d !important;
+}
+
+select option {
+  background-color: #121824 !important;
+  color: #f0f0f0 !important;
+  padding: 10px;
+}
+
+/* Универсальные кнопки */
+button,
+.btn,
+.btn-primary,
+.btn-success,
+.details-btn {
+  padding: 0.8rem 1.6rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  border-radius: 30px 8px 30px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+button:hover,
+.btn:hover,
+.btn-primary:hover,
+.btn-success:hover,
+.details-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 0 2px var(--primary-glow);
+  border-color: var(--primary);
+}
+
+/* Уведомления / Алерты */
+.alert-success {
+  padding: 0.8rem 1rem;
+  background: rgba(59, 203, 154, 0.2);
+  border: 1px solid var(--success);
+  color: #e5ffe9;
+  border-radius: 20px 6px 20px 6px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.alert-danger {
+  padding: 0.8rem 1rem;
+  background: rgba(255, 94, 124, 0.2);
+  border: 1px solid var(--danger);
+  color: #ffe5e9;
+  border-radius: 20px 6px 20px 6px;
+  font-size: 0.9rem;
+  text-align: center;
+}
